@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   JELLY JELLY — deck tokens
+   Palette lifted from jellyjelly.com/brand:
+   Periwinkle #8AA9F5 · Metallic Black #2C2C2C · Silver #AAAAAA
+   Soft Gold #C8A86B · Violet #8A7DFF
+   Wobbles: Cyan #3AB9E2 · Blue #0094D3 · Light Cyan #82D1F5 · Pink #F4A7B9
+   ========================================================================== */
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #f6f6f8;
+  --color-ink-dim: #a8a8b3;
+  --color-void: #07080b;
+  --color-coal: #101218;
+  --color-metal: #2c2c2c;
+  --color-silver: #aaaaaa;
+  --color-peri: #8aa9f5;
+  --color-violet: #8a7dff;
+  --color-gold: #c8a86b;
+  --color-wob-cyan: #3ab9e2;
+  --color-wob-blue: #0094d3;
+  --color-wob-sky: #82d1f5;
+  --color-wob-pink: #f4a7b9;
+
+  --radius-jelly: 1.75rem;
+}
+
+:root {
+  --rule: rgba(246, 246, 248, 0.14);
+  --glass: rgba(246, 246, 248, 0.045);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* soft brand glow + fine grain so no slide reads as a flat box */
+.deck-canvas {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 80% at 82% -10%, rgba(138, 125, 255, 0.22), transparent 60%),
+    radial-gradient(90% 70% at -10% 110%, rgba(138, 169, 245, 0.16), transparent 62%),
+    linear-gradient(180deg, #0a0b10 0%, #07080b 60%, #05060a 100%);
+}
+
+.deck-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+.hero-type {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.038em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-dim);
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--rule);
+  backdrop-filter: blur(14px);
+}
+
+/* slide entrance */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise > * {
+  animation: riseIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise > *:nth-child(1) { animation-delay: 0.02s; }
+.rise > *:nth-child(2) { animation-delay: 0.09s; }
+.rise > *:nth-child(3) { animation-delay: 0.16s; }
+.rise > *:nth-child(4) { animation-delay: 0.23s; }
+.rise > *:nth-child(5) { animation-delay: 0.3s; }
+.rise > *:nth-child(6) { animation-delay: 0.37s; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(4deg) translateY(-8px); }
+}
+
+.wobbling {
+  animation: wobble 4.2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.85); opacity: 0.55; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulseRing 3s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise > *,
+  .wobbling,
+  .pulse-ring {
+    animation: none !important;
+  }
+}
+
+::selection {
+  background: var(--color-peri);
+  color: #07080b;
+}
