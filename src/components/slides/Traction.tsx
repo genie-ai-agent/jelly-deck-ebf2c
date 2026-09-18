@@ -9,27 +9,22 @@ const stats = [
 
 export default function Traction() {
   return (
-    <SlideShell eyebrow="07 · Traction">
-      <h1 className="hero-type text-[clamp(2rem,6.4vw,4.2rem)]">
+    <SlideShell eyebrow="07 · Traction" wide>
+      <h1 className="hero-type text-[clamp(2rem,min(7vw,8.5vh),4.4rem)]">
         Live app, real wallets,
         <br />
         real money moving.
       </h1>
-      <div className="mt-11 grid grid-cols-2 gap-6 md:grid-cols-4">
+      <div className="mt-[clamp(1.6rem,5vh,3.2rem)] grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.k} className="border-t border-white/15 pt-4">
-            <p className="hero-type text-[clamp(2.2rem,6vw,3.6rem)] text-peri">{s.v}</p>
-            <p className="eyebrow mt-2">{s.k}</p>
+          <div key={s.k} className="border-t border-white/15 pt-3">
+            <p className="hero-type text-[clamp(2rem,min(6vw,7vh),3.6rem)] text-peri">{s.v}</p>
+            <p className="eyebrow mt-1.5">{s.k}</p>
           </div>
         ))}
       </div>
-      <p className="mt-10 max-w-[56ch] text-[clamp(0.98rem,2.1vw,1.15rem)] leading-relaxed text-ink-dim">
-        Jelly is shipped and in the App Store, with wallets attached to real
-        humans. The next two years are about taking monthly actives from
-        thousands to a million.
-      </p>
-      <p className="mt-6 text-xs tracking-[0.14em] uppercase text-ink-dim/70">
-        Figures last confirmed Aug 2026 — [update with current numbers]
+      <p className="mt-[clamp(1.3rem,4vh,2.4rem)] text-[0.7rem] uppercase tracking-[0.16em] text-ink-dim/70">
+        Aug 2026 · [update with current numbers]
       </p>
     </SlideShell>
   );

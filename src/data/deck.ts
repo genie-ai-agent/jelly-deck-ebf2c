@@ -6,7 +6,7 @@ export type SlideMeta = {
 /** Order is the deck order. The problem opens the deck — no title card. */
 export const slideMeta: SlideMeta[] = [
   { id: 'problem', label: 'The problem' },
-  { id: 'want', label: 'What you actually want' },
+  { id: 'want', label: 'What you want' },
   { id: 'solution', label: 'The solution' },
   { id: 'how', label: 'How it works' },
   { id: 'wobbles', label: 'Wobbles' },
@@ -15,6 +15,7 @@ export const slideMeta: SlideMeta[] = [
   { id: 'team', label: 'Team' },
   { id: 'raise', label: 'The raise' },
   { id: 'close', label: 'Jelly Jelly' },
+  { id: 'invest', label: 'Invest' },
 ];
 
 export const RAISE = '$1.5M';

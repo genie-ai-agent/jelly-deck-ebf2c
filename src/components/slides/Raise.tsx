@@ -3,28 +3,15 @@ import SlideShell from '@/components/SlideShell';
 export default function Raise() {
   return (
     <SlideShell eyebrow="09 · The raise">
-      <p className="eyebrow mb-3 text-gold">We are raising</p>
-      <h1 className="hero-type text-[clamp(3.6rem,15vw,9.5rem)] text-ink">
-        $1.5M
-      </h1>
-      <p className="mt-7 max-w-[52ch] text-[clamp(1.02rem,2.3vw,1.3rem)] leading-relaxed text-ink-dim">
-        To take Jelly from a live app with thousands of real humans on it to the
-        default place people share real moments and send each other money.
+      <p className="eyebrow mb-[clamp(0.6rem,1.8vh,1rem)] text-gold">We are raising</p>
+      <h1 className="hero-type text-[clamp(3.6rem,min(16vw,19vh),10rem)] text-ink">$1.5M</h1>
+      <p className="mt-[clamp(1.2rem,3.6vh,2.2rem)] max-w-[36ch] text-[clamp(1.05rem,min(2.6vw,2.8vh),1.45rem)] leading-snug text-ink-dim">
+        On a standard YC SAFE, to take Jelly from thousands of real humans to the
+        default place people share moments and send each other money.
       </p>
-      <div className="mt-10 grid gap-4 sm:grid-cols-3">
-        {[
-          { k: 'Round', v: '[round type]' },
-          { k: 'Terms', v: '[valuation / terms]' },
-          { k: 'Use of funds', v: '[split across product, growth, ops]' },
-        ].map((f) => (
-          <div key={f.k} className="glass rounded-2xl p-5">
-            <p className="eyebrow">{f.k}</p>
-            <p className="mt-2 font-display text-base font-bold tracking-tight text-ink/80">
-              {f.v}
-            </p>
-          </div>
-        ))}
-      </div>
+      <p className="mt-[clamp(1rem,3vh,1.8rem)] font-display text-[clamp(0.95rem,2.2vh,1.1rem)] font-bold tracking-tight text-ink/70">
+        Valuation cap: [your cap]
+      </p>
     </SlideShell>
   );
 }

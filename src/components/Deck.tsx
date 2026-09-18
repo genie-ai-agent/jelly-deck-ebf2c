@@ -11,6 +11,7 @@ import Traction from '@/components/slides/Traction';
 import Team from '@/components/slides/Team';
 import Raise from '@/components/slides/Raise';
 import Close from '@/components/slides/Close';
+import Invest from '@/components/slides/Invest';
 
 const slides = [
   Problem,
@@ -23,6 +24,7 @@ const slides = [
   Team,
   Raise,
   Close,
+  Invest,
 ];
 
 const total = slides.length;
@@ -49,10 +51,6 @@ export default function Deck() {
   useEffect(() => {
     setI(indexFromHash());
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [i]);
 
   useEffect(() => {
     const onHash = () => setI(indexFromHash());
@@ -91,7 +89,7 @@ export default function Deck() {
 
   return (
     <main
-      className="deck-canvas flex min-h-[100svh] w-full flex-col"
+      className="deck-canvas flex h-[100svh] max-h-[100svh] w-full flex-col overflow-hidden"
       onTouchStart={(e) => {
         touchX.current = e.touches[0]?.clientX ?? null;
       }}
@@ -128,7 +126,7 @@ export default function Deck() {
       </p>
 
       {/* slide, keyed so the entrance animation replays */}
-      <div key={i} className="flex min-h-[100svh] w-full flex-1">
+      <div key={i} className="flex h-[100svh] w-full flex-1 overflow-hidden">
         <Slide />
       </div>
 
